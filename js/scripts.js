@@ -28,3 +28,6 @@ submitButton.addEventListener("click", function () {
     resultDiv.appendChild(resultItem);
   });
 });
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
