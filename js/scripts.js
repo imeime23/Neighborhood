@@ -1,60 +1,30 @@
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+//User Interface Logic
+const submitButton = document.querySelector("#submit");
+const numberInput = document.querySelector("#number");
+const resultDiv = document.querySelector("#result");
+ 
+//Business Logic
+submitButton.addEventListener("click", function () {
+  const inputNumber = Number(numberInput.value);
+  resultDiv.innerHTML = "";
+  let resultArray = [];
+ 
+  for (let i = 0; i <= inputNumber; i++) {
+    let currentNumber = i.toString();
+    if (currentNumber.includes("3")) {
+      resultArray.push("Won't you be my neighbor?");
+    } else if (currentNumber.includes("2")) {
+      resultArray.push("Boop!");
+    } else if (currentNumber.includes("1")) {
+      resultArray.push("Beep!");
+    } else {
+      resultArray.push(currentNumber);
+    }
+  }
 
-function forNumberOne (number) {
-  let forNumberOne = 0;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-// // Calculator Business Logic
-// function add(num1, num2) {
-//   return num1 + num2;
-// }
-
-// function subtract(num1, num2) {
-//   return num1 - num2;
-// }
-
-// function multiply(num1, num2) {
-//   return num1 * num2;
-// }
-
-// function divide(num1, num2) {
-//   return num1 / num2;
-// }
-
-// // User Interface Logic
-// function handleCalculation(event) {
-//   event.preventDefault();
-//   const number1 = parseInt(document.querySelector("input#input1").value);
-//   const number2 = parseInt(document.querySelector("input#input2").value);
-//   const operator = document.querySelector("input[name='operator']:checked").value;
-//   // the code to get and process form values will go here!
-
-//   let result;
-//   if (operator === "add") {
-//     result = add(number1, number2);
-//   } else if (operator === "subtract") {
-//     result = subtract(number1, number2);
-//   } else if (operator === "multiply") {
-//     result = multiply(number1, number2);
-//   } else if (operator === "divide") {
-//     result = divide(number1, number2);
-//   }
-
-//   document.getElementById("output").innerText = result;
-// }
-
-// window.addEventListener("load", function() {
-//   const form = document.getElementById("calculator");
-//   form.addEventListener("submit", handleCalculation);
-// });
+  resultArray.forEach(function (item) {
+    let resultItem = document.createElement("p");
+    resultItem.innerHTML = item;
+    resultDiv.appendChild(resultItem);
+  });
+});
