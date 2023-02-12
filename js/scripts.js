@@ -1,4 +1,3 @@
-//User Interface Logic
 const submitButton = document.querySelector("#submit");
 const numberInput = document.querySelector("#number");
 const resultDiv = document.querySelector("#result");
@@ -28,6 +27,3 @@ submitButton.addEventListener("click", function () {
     resultDiv.appendChild(resultItem);
   });
 });
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
